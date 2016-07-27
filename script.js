@@ -10,9 +10,12 @@
             var offset = Math.floor(Math.random() * 500);
             return "https://api.github.com/users?since=" + offset;
         });
-        var responseStream = requestStream.flatMap(function (url) {
+        var responseStream = requestStream
+            .flatMap(function (url) {
             return Rx.Observable.fromPromise($.getJSON(url));
-        });
+        })
+            .publish()
+            .refCount();
         var randomUser = function (click, list) {
             return list[Math.floor(Math.random() * list.length)];
         };

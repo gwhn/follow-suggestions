@@ -14,9 +14,12 @@
                 return `https://api.github.com/users?since=${offset}`;
             });
 
-        const responseStream = requestStream.flatMap(url => {
-            return Rx.Observable.fromPromise($.getJSON(url));
-        });
+        const responseStream = requestStream
+            .flatMap(url => {
+                return Rx.Observable.fromPromise($.getJSON(url));
+            })
+            .publish()
+            .refCount();
 
         const randomUser = (click, list) => {
             return list[Math.floor(Math.random() * list.length)];
