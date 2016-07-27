@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Who to follow?</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.js"></script>
+    <script src="script.js"></script>
+</head>
+<body class="container">
+<div class="row">
+    <div class="col-xs-12">
+        <section id="suggestions" class="panel panel-default">
+            <header class="panel-heading">
+                <h1>
+                    Who to follow
+                    <a class="refresh pull-right" href="javascript:void(0)">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                </h1>
+            </header>
+            <section class="panel-body">
+                <ul class="media-list">
+                    <li class="media" id="suggestion1">
+                        <div class="media-left media-middle">
+                            <img class="media-object" src="https://avatars.githubusercontent.com/u/46?v=3" alt="bmizerany" width="64" height="64">
+                        </div>
+                        <div class="media-body">
+                            <h2 class="media-heading">
+                                <a class="user-login" href="https://github.com/bmizerany">bmizerany</a>
+                                <a class="close pull-right" href="javascript:void(0)">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </a>
+                            </h2>
+                        </div>
+                    </li>
+                    <li class="media" id="suggestion2">
+                        <div class="media-left media-middle">
+                            <img class="media-object" src="https://avatars.githubusercontent.com/u/45?v=3" alt="mojodna" width="64" height="64">
+                        </div>
+                        <div class="media-body">
+                            <h2 class="media-heading">
+                                <a class="user-login" href="https://github.com/mojodna">mojodna</a>
+                                <a class="close pull-right" href="javascript:void(0)">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </a>
+                            </h2>
+                        </div>
+                    </li>
+                    <li class="media" id="suggestion3">
+                        <div class="media-left media-middle">
+                            <img class="media-object" src="https://avatars.githubusercontent.com/u/44?v=3" alt="errfree" width="64" height="64">
+                        </div>
+                        <div class="media-body">
+                            <h2 class="media-heading">
+                                <a class="user-login" href="https://github.com/errfree">errfree</a>
+                                <a class="close pull-right" href="javascript:void(0)">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </a>
+                            </h2>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </section>
+    </div>
+</div>
+</body>
+</html>
