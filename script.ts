@@ -39,50 +39,36 @@
             }
         };
 
+        const createSuggestionStream = closeClickStream => {
+            return closeClickStream
+                .startWith('startup click')
+                .combineLatest(responseStream, randomUser)
+                .merge(refreshClickStream.map(() => {
+                    return null;
+                }))
+                .startWith(null);
+        };
+
         const close1Button = $('#suggestion1 .close')[0];
         const close1ClickStream = Rx.Observable.fromEvent(close1Button, 'click');
-
-        const suggestion1Stream = close1ClickStream
-            .startWith('startup click')
-            .combineLatest(responseStream, randomUser)
-            .merge(refreshClickStream.map(() => {
-                return null;
-            }))
-            .startWith(null);
-
-        suggestion1Stream.subscribe(res => {
-            updateSuggestion($('#suggestion1'), res);
-        });
+        createSuggestionStream(close1ClickStream)
+            .subscribe(res => {
+                updateSuggestion($('#suggestion1'), res);
+            });
 
         const close2Button = $('#suggestion2 .close')[0];
         const close2ClickStream = Rx.Observable.fromEvent(close2Button, 'click');
-
-        const suggestion2Stream = close2ClickStream
-            .startWith('startup click')
-            .combineLatest(responseStream, randomUser)
-            .merge(refreshClickStream.map(() => {
-                return null;
-            }))
-            .startWith(null);
-
-        suggestion2Stream.subscribe(res => {
-            updateSuggestion($('#suggestion2'), res);
-        });
+        createSuggestionStream(close2ClickStream)
+            .subscribe(res => {
+                updateSuggestion($('#suggestion2'), res);
+            });
 
         const close3Button = $('#suggestion3 .close')[0];
         const close3ClickStream = Rx.Observable.fromEvent(close3Button, 'click');
-
-        const suggestion3Stream = close3ClickStream
-            .startWith('startup click')
-            .combineLatest(responseStream, randomUser)
-            .merge(refreshClickStream.map(() => {
-                return null;
-            }))
-            .startWith(null);
-
-        suggestion3Stream.subscribe(res => {
-            updateSuggestion($('#suggestion3'), res);
-        });
+        createSuggestionStream(close3ClickStream)
+            .subscribe(res => {
+                updateSuggestion($('#suggestion3'), res);
+            });
     });
 
 })(this);
