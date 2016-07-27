@@ -2,8 +2,9 @@
     'use strict';
     var $ = global.$, Rx = global.Rx;
     $(function () {
-        var refreshButton = $('#suggestions .refresh')[0];
-        var refreshClickStream = Rx.Observable.fromEvent(refreshButton, 'click');
+        var $suggestions = $('.suggestions')[0];
+        var $refreshButton = $('.refresh', $suggestions)[0];
+        var refreshClickStream = Rx.Observable.fromEvent($refreshButton, 'click');
         var requestStream = refreshClickStream
             .startWith('startup click')
             .map(function () {
@@ -42,23 +43,23 @@
             }))
                 .startWith(null);
         };
-        var close1Button = $('#suggestion1 .close')[0];
-        var close1ClickStream = Rx.Observable.fromEvent(close1Button, 'click');
+        var $close1Button = $('.suggestion1 .close', $suggestions)[0];
+        var close1ClickStream = Rx.Observable.fromEvent($close1Button, 'click');
         createSuggestionStream(close1ClickStream)
             .subscribe(function (res) {
-            updateSuggestion($('#suggestion1'), res);
+            updateSuggestion($('.suggestion1', $suggestions), res);
         });
-        var close2Button = $('#suggestion2 .close')[0];
-        var close2ClickStream = Rx.Observable.fromEvent(close2Button, 'click');
+        var $close2Button = $('.suggestion2 .close', $suggestions)[0];
+        var close2ClickStream = Rx.Observable.fromEvent($close2Button, 'click');
         createSuggestionStream(close2ClickStream)
             .subscribe(function (res) {
-            updateSuggestion($('#suggestion2'), res);
+            updateSuggestion($('.suggestion2', $suggestions), res);
         });
-        var close3Button = $('#suggestion3 .close')[0];
-        var close3ClickStream = Rx.Observable.fromEvent(close3Button, 'click');
+        var $close3Button = $('.suggestion3 .close', $suggestions)[0];
+        var close3ClickStream = Rx.Observable.fromEvent($close3Button, 'click');
         createSuggestionStream(close3ClickStream)
             .subscribe(function (res) {
-            updateSuggestion($('#suggestion3'), res);
+            updateSuggestion($('.suggestion3', $suggestions), res);
         });
     });
 })(this);
